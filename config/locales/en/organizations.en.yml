@@ -1,0 +1,91 @@
+en:
+  organizations: &organizations
+    label: &label Organizations
+    breadcrumbs:
+      label: *label
+    navigation:
+      label: *label
+      icon: ti ti-briefcase
+    buttons: &buttons
+      new: Add New Organization
+      create: Create Organization
+      edit: Edit Organization
+      update: Update Organization
+      destroy: Remove Organization
+      shorthand:
+        edit: Edit
+        destroy: Delete
+      confirmations:
+        # TODO customize for your use-case.
+        destroy: Are you sure you want to remove %{organization_name}? This will also remove any child resources and can't be undone.
+    organization:
+      buttons: *buttons
+    fields: &fields
+      id:
+        heading: Organization ID
+      team_id:
+        heading: Team ID
+      name:
+        _: &name Name
+        label: *name
+        heading: *name
+      # 🚅 super scaffolding will insert new fields above this line.
+      created_at:
+        _: &created_at Added
+        label: *created_at
+        heading: *created_at
+      updated_at:
+        _: &updated_at Updated
+        label: *updated_at
+        heading: *updated_at
+    api:
+      collection_actions: "Collection Actions for Organizations"
+      index: "List Organizations"
+      create: "Add a New Organization"
+      member_actions: "Actions for an Individual Organization"
+      show: "Retrieve a Organization"
+      update: "Update a Organization"
+      destroy: "Delete a Organization"
+      fields: *fields
+    index:
+      section: "%{teams_possessive} Organizations"
+      contexts:
+        team:
+          header: Organizations
+          description: Below is a list of Organizations that have been added for %{team_name}.
+          description_empty: No Organizations have been added for %{team_name}.
+      fields: *fields
+      buttons: *buttons
+    show:
+      section: "%{organization_name}"
+      header: Organization Details
+      description: Below are the details we have for %{organization_name}.
+      manage_description: You'll also find options for updating these details or removing %{organization_name} from %{team_name} entirely.
+      fields: *fields
+      buttons: *buttons
+    form: &form
+      buttons: *buttons
+      fields: *fields
+    new:
+      section: "New Organization for %{team_name}"
+      header: New Organization Details
+      description: Please provide the details of the new Organization you'd like to add to %{team_name}.
+      form: *form
+    edit:
+      section: "%{organization_name}"
+      header: Edit Organization Details
+      description: You can update the details or settings for %{organization_name} below.
+      form: *form
+    notifications:
+      created: Organization was successfully created.
+      updated: Organization was successfully updated.
+      destroyed: Organization was successfully destroyed.
+  account:
+    organizations: *organizations
+  activerecord:
+    attributes:
+      organization:
+        name: *name
+        # 🚅 super scaffolding will insert new activerecord attributes above this line.
+        created_at: *created_at
+        updated_at: *updated_at
